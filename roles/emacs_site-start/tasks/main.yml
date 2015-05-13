@@ -1,0 +1,3 @@
+- name: copy site-lisp to the directory structure
+  copy: src=emacs/ dest={{ ansible_env["HOME"] }}/.emacs.d/libexec/emacs/site-start.d/
+

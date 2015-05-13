@@ -1,0 +1,5 @@
+- hosts: local
+  roles:
+    - emacs_core
+    - emacs_site-start
+    - emacs_site-lisp

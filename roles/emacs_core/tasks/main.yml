@@ -1,0 +1,8 @@
+- name: install core emacs config file
+  copy: src=emacs dest={{ ansible_env["HOME"] }}/.emacs
+
+- name: create site-lisp directory structure
+  file: state=directory recurse=true path={{ ansible_env["HOME"] }}/.emacs.d/share/emacs/site-lisp
+
+- name: create site-start directory structure
+  file: state=directory recurse=true path={{ ansible_env["HOME"] }}/.emacs.d/libexec/site-start.d
