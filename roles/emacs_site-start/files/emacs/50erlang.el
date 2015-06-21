@@ -1,5 +1,3 @@
-(unless (package-installed-p 'erlmode)
-  (package-install 'erlmode))
-
-(require 'ac-erlmode)
-(require 'erlmode-start)
+(unless (package-installed-p 'erlang)
+  (package-install 'erlang))
+(require 'erlang-start)
