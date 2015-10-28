@@ -82,13 +82,6 @@
  '(speedbar-show-unknown-files t)
 )
 
-(setq org-directory "~/Dropbox/org")
-(setq org-agenda-files (list org-directory))
-(add-to-list 'org-agenda-files org-journal-dir)
-(setq org-agenda-file-regexp "\\`[^.].*\\.org'\\|[0-9]+")
-(setq org-default-notes-file (concat org-directory "/notes.org"))
-(define-key global-map "\C-cc" 'org-capture)
-
 ; (c-add-style "dgvncsz0f" '("bsd"
 ;                            (c-basic-offset . 2)
 ;                            (substatement-open . 0)
