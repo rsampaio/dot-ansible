@@ -78,17 +78,6 @@
 (global-set-key (kbd "<C-return>") 'rectangle-mark-mode)
 (global-set-key (kbd "C-c ro") 'open-rectangle)
 (global-set-key (kbd "<M-C-return>") 'org-insert-todo-heading)
-(custom-set-variables
- '(speedbar-show-unknown-files t)
-)
+(setq speedbar-show-unknown-files t)
 
-; (c-add-style "dgvncsz0f" '("bsd"
-;                            (c-basic-offset . 2)
-;                            (substatement-open . 0)
-;                            ))
-; (defun dgvncsz0f-mode-hook ()
-;   (c-set-style "dgvncsz0f"))
-; (add-hook 'c-mode-hook 'dgvncsz0f-mode-hook)
-; (add-hook 'c++-mode-hook 'dgvncsz0f-mode-hook)
-; 
 (unless (server-running-p) (server-start))
