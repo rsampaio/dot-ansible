@@ -1,0 +1,28 @@
+- name: install packages
+  pacman: name={{item}} state=present update_cache=yes
+  with_items:
+    - emacs
+    - docker
+    - libvirt
+    - virt-manager
+    - ruby
+    - libxml2
+    - libxslt
+    - shutter
+    - firefox
+    - irssi
+    - vim-ctrlp
+    - ttf-liberation
+    - ttf-ubuntu-font-family
+  become: yes
+
+- name: install AUR packages
+  shell: yaourt -Q {{item}} || yaourt --noconfirm -S {{item}}
+  with_items:
+    - google-chrome
+    - rbenv
+    - ruby-build
+    - telegram-desktop-bin 
+    - python-powerline
+    - psg
+    - powerline-fonts
