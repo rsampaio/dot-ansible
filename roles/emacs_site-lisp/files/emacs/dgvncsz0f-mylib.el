@@ -78,74 +78,11 @@
 (defun yas/org-very-safe-expand ()
   (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
 
-(defun my-org-kill-whole-line (&optional arg)
-  "Simply put the point at beginning of line and invoke org-kill-line."
-  (interactive "P")
-  (move-beginning-of-line nil)
-  (org-kill-line arg))
-
 (defun my-delete-prefix (pfx str)
   (if (string-prefix-p pfx str)
       (substring str (length pfx))
     str
     ))
-
-(defun my-org-attach-expand-link (file)
-  (cond
-   ((string-prefix-p (expand-file-name "~/dev/github/b") (expand-file-name (org-attach-expand "")))
-    (concat "http://dsouza.bitforest.org/static" (my-delete-prefix (org-attach-expand "") (org-attach-expand file))))
-   (t
-    (org-attach-expand-link file))
-   ))
-
-(defun my-org-publish-before-export-hook ()
-  (setq org-link-abbrev-alist-backup org-link-abbrev-alist)
-  (setq org-link-abbrev-alist '(("attach" . my-org-attach-expand-link))))
-
-(defun my-org-publish-after-export-hook ()
-  (setq org-link-abbrev-alist org-link-abbrev-alist-backup))
-
-(defun my-org-insert-link-to-attachment (&optional name)
-  (interactive "P")
-  (cond 
-   (name 
-    (org-insert-link 'org-store-link (concat "attach:" (org-attach-expand name))))
-   (t 
-    (let ((myname (read-string "Attachment: ")))
-      (org-insert-link 'org-store-link (concat "attach:" (org-attach-expand myname)))))))
-
-(defun my-org-mode-hook ()
-  (define-key org-mode-map (kbd "C-k") 'my-org-kill-whole-line)
-  (define-key org-mode-map (kbd "C-c a") 'org-agenda)
-  (define-key org-mode-map (kbd "C-c M-l") 'my-org-insert-link-to-attachment)
-  (define-key icicle-mode-map (kbd "C-c /") nil)
-  (setq org-enforce-todo-dependencies t)
-  (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
-  (setq org-publish-project-alist
-        '(
-
-          ("dsouza-org"
-           :base-directory "~/dev/github/b/org"
-           :base-extension "org"
-           
-           :recursive t
-           :body-only t
-           :auto-preamble nil
-           :html-extension "html"
-           :publishing-function org-publish-org-to-html
-           :publishing-directory "~/dev/github/b/_posts"
-           )
-
-          ("dsouza-static"
-           :base-directory "~/dev/github/b/org"
-           :base-extension "css\\|js\\|png\\|jpg\\|gif"
-
-           :recursive t
-           :publishing-function org-publish-attachment
-           :publishing-directory "~/dev/github/b/static"
-           )
-
-          ("dsouza" :components ("dsouza-org" "dsouza-static")))))
 
 ;; source: http://www.emacswiki.org/emacs/RecursiveEditPreservingWindowConfig
 (defmacro my-recursive-edit-preserving-window-config (body)
