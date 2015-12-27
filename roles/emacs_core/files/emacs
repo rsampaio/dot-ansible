@@ -23,7 +23,7 @@
     (normal-top-level-add-subdirs-to-load-path))
   (mapcar 'load (file-expand-wildcards (concat user-site-start-dir "*.el"))))
 
-(set-default-font "Liberation Mono for Powerline")
+(set-default-font "DejaVu Sans Mono for Powerline")
 ; (set-face-attribute 'default nil :height 160)
 
 (fset 'yes-or-no-p 'y-or-n-p)
