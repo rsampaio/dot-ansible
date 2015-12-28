@@ -15,4 +15,4 @@
     - unagi
 
 - name: install i3 files
-  copy: src=i3 dest={{ ansible_env["HOME"] }}/.config/i3
+  copy: src=i3 dest={{ ansible_env["HOME"] }}/.config/
