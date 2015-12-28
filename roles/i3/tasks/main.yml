@@ -13,6 +13,17 @@
     - python-i3-git
     - i3-gnome
     - unagi
+    - lemonbar-xft-git
+    - powerline-fonts-git
+
+- name: install fonts
+  copy: src=fonts dest={{ ansible_env["HOME"] }}/.local/share/
+
+- name: mkfontdir
+  shell: fc-cache -s
 
 - name: install i3 files
   copy: src=i3 dest={{ ansible_env["HOME"] }}/.config/
+
+- name: file permissions
+  file: path={{ ansible_env["HOME"] }}/.config/.i3/lemonbar/ state=directory mode=0755

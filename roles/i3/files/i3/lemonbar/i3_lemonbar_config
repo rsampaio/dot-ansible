@@ -3,8 +3,8 @@
 
 panel_fifo="/tmp/i3_lemonbar_${USER}"
 geometry="x15"
-font="-xos4-terminesspowerline-*-*-*-*-14-*-*-*-*-*-*-*"
-iconfont="-xos4-terminusicons2mono-*-*-*-*-12-*-*-*-*-*-*-*"
+font="xft:Terminess Powerline:style=regular,pixelsize=12"
+iconfont="xft:TerminusIcons2Mono"
 res_w=$(xrandr | grep "current" | awk '{print $8a}')
 snd_cha=$(pactl info | grep "Default Sink: " | awk '{print $3}')
 
@@ -18,7 +18,7 @@ upd_vol=3                           # Volume update
 upd_mail=300                        # Mail check update
 upd_mpd=5                           # MPD song update
 
-# color definitions 
+# color definitions
 color_back="#FF1D1F21"              # Default background
 color_fore="#FFC5C8C6"              # Default foreground
 color_head="#FFB5BD68"              # Background for first element
