@@ -3,8 +3,8 @@
 
 panel_fifo="/tmp/i3_lemonbar_${USER}"
 geometry="x15"
-font="xft:Terminess Powerline:style=regular,pixelsize=12"
-iconfont="xft:TerminusIcons2Mono"
+font="Terminess Powerline:style=regular,pixelsize=12"
+iconfont="Terminusicons2Mono"
 res_w=$(xrandr | grep "current" | awk '{print $8a}')
 snd_cha=$(pactl info | grep "Default Sink: " | awk '{print $3}')
 
