@@ -33,7 +33,7 @@ while :; do
 
   # Volume, "VOL"
   if [ $((cnt_vol++)) -ge ${upd_vol} ]; then
-    pactl list sinks | grep -A 10 ${snd_cha} | grep "Volume: front" | awk '{print $5 " " $12}' | awk '{printf "VOL%d%%%%\n", $2}' > "${panel_fifo}" &
+    pactl list sinks | grep -A 10 ${snd_cha} | grep "Volume: front" | awk '{print $5 " " $12}' | awk '{printf "VOL%d%%\n", $2}' > "${panel_fifo}" &
     cnt_vol=0
   fi
   sleep 1;

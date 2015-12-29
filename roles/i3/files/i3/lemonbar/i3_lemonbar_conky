@@ -10,7 +10,7 @@ if_up_strictness address
 format_human_readable true
 
 TEXT
-SYS\
+SYS \
 ${time %a %d %b %H:%M} \
 ${cpu} \
 ${mem} \
@@ -18,5 +18,6 @@ ${fs_used_perc /} \
 ${fs_used_perc /home} \
 ${if_up eno1}${downspeedf eno1} ${upspeedf eno1} \
 ${else}down down${endif} \
-${if_up wlps0}${downspeedf wlps0} ${upspeedf wlps0} \
+${if_up wlp3s0}${downspeedf wlp3s0} ${upspeedf wlp3s0} \
 ${else}down down${endif}\
+${battery_percent all} \
