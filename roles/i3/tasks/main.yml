@@ -2,7 +2,6 @@
   pacman: name={{item}} state=present update_cache=yes
   with_items:
     - xorg-xprop
-    - conky
   become: yes
 
 - name: install AUR packages
@@ -10,11 +9,12 @@
   with_items:
     - perl-anyevent-i3
     - perl-json-xs
-    - python-i3-git
     - i3-gnome
+    - python-powerline-git
     - unagi
     - lemonbar-xft-git
     - powerline-fonts-git
+    - i3ipc-glib-git
 
 - name: install fonts
   copy: src=fonts dest={{ ansible_env["HOME"] }}/.local/share/
@@ -25,5 +25,3 @@
 - name: install i3 files
   copy: src=i3 dest={{ ansible_env["HOME"] }}/.config/
 
-- name: file permissions
-  file: path={{ ansible_env["HOME"] }}/.config/.i3/lemonbar/ state=directory mode=0755
