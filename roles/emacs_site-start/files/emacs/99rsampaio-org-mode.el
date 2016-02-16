@@ -1,7 +1,8 @@
 (require 'org)
 
 (setq org-directory "~/Dropbox/org")
-(setq org-agenda-files (list org-directory))
+(setq org-agenda-files (file-expand-wildcards "~/Dropbox/org/*.org"))
+(setq org-log-done t)
 (add-to-list 'org-agenda-files org-journal-dir)
 (setq org-agenda-file-regexp "\\`[^.].*\\.org'\\|[0-9]+")
 (setq org-default-notes-file (concat org-directory "/notes.org"))
