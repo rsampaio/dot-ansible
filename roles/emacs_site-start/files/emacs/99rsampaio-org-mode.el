@@ -9,6 +9,7 @@
 
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
+(global-set-key (kbd "<f12>") 'org-agenda-list)
 (global-set-key "\C-cb" 'org-iswitchb)
 
 (setq
