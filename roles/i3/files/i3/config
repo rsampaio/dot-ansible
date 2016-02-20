@@ -28,9 +28,9 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec sakura
 
-bindsym $mod+Tab exec quickswitch.py
+bindsym $mod+Tab exec python /home/rodrigo/bin/nextfind.py
 
 bindsym $mod+Mod1+y exec /home/rodrigo/bin/yubitoggle.sh
 # kill focused window
@@ -104,6 +104,8 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+
+bindsym $mod+x move workspace to output up
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -179,17 +181,20 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     output eDP1
-    i3bar_command /usr/lib/python3.5/site-packages/powerline/bindings/lemonbar/powerline-lemonbar.py --i3 -- -p -f "Terminess Powerline:style=regular,pixelsize=12" -g x14 -B \#FF1D1F21 -F \#FFC5C8C6 -b
+    #i3bar_command /usr/lib/python3.5/site-packages/powerline/bindings/lemonbar/powerline-lemonbar.py --i3 -- -p -f "Terminess Powerline:style=regular,pixelsize=12" -g x14 -B \#FF1D1F21 -F \#FFC5C8C6 -b
+    status_command i3blocks
 }
 
 for_window [class="^google-chrome|^Firefox"] border 1pixel
 for_window [class="^Emacs"] border 1pixel
 for_window [class="^Terminator"] border 1pixel
+for_window [class="^Sakura"] border 1pixel
 for_window [window_role="pop-up"] floating 1pixel
 for_window [window_role="task_dialog"] floating 1pixel
 for_window [title="Preferences$"] floating 1pixel
 
 exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/current
+exec --no-startup-id xfce4-power-manager
 exec --no-startup-id unagi
 exec --no-startup-id synapse -s
 exec --no-startup-id nm-applet
