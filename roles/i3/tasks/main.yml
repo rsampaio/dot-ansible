@@ -4,18 +4,6 @@
     - xorg-xprop
   become: yes
 
-- name: install AUR packages
-  shell: yaourt -Q {{item}} || yaourt --noconfirm -S {{item}}
-  with_items:
-    - perl-anyevent-i3
-    - perl-json-xs
-    - i3-gnome
-    - python-powerline-git
-    - unagi
-    - lemonbar-xft-git
-    - powerline-fonts-git
-    - i3ipc-glib-git
-
 - name: install fonts
   copy: src=fonts dest={{ ansible_env["HOME"] }}/.local/share/
 
