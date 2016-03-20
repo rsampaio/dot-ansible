@@ -1,6 +1,3 @@
-(define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
-(setq c-default-style "linux"
-      c-basic-offset 4)
-(setq-default c-basic-offset 4
-              tab-width 4
-              indent-tabs-mode t)
+(setq company-backends (delete 'company-semantic company-backends))
+(define-key c-mode-map  [(M-tab)] 'company-complete)
+(define-key c++-mode-map  [(M-tab)] 'company-complete)
