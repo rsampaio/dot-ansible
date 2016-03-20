@@ -78,6 +78,5 @@
 (global-set-key (kbd "<C-return>") 'rectangle-mark-mode)
 (global-set-key (kbd "C-c ro") 'open-rectangle)
 (global-set-key (kbd "<M-C-return>") 'org-insert-todo-heading)
-(setq speedbar-show-unknown-files t)
 
 (unless (server-running-p) (server-start))

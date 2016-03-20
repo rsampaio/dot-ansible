@@ -2,3 +2,4 @@
   (package-install 'sr-speedbar))
 (require 'sr-speedbar)
 (speedbar-add-supported-extension ".go")
+(setq speedbar-show-unknown-files '1)
