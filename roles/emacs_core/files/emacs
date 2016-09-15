@@ -23,6 +23,12 @@
     (normal-top-level-add-subdirs-to-load-path))
   (mapcar 'load (file-expand-wildcards (concat user-site-start-dir "*.el"))))
 
+(if (and
+      (not (getenv "TERM_PROGRAM"))
+      (string-equal "darwin" (symbol-name system-type)))
+  (setenv "PATH"
+    (shell-command-to-string "source $HOME/.bashrc && printf $PATH")))
+
 (set-default-font "DejaVu Sans Mono Book")
 ; (set-face-attribute 'default nil :height 160)
 
