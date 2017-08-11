@@ -1,4 +1,5 @@
-(unless (package-installed-p 'sr-speedbar)
-  (package-install 'neotree))
+(unless (package-installed-p 'neotree)
+  (package-install 'neotree)
+  (package-install 'all-the-icons)
 (require 'neotree)
-(setq neo-theme (if window-system 'icons 'arrow))
+(setq neo-theme (if (display-graphic-p 'icons 'arrow))
